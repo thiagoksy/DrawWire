@@ -7,6 +7,9 @@
     tDraw_wire /  generated voltage
     distance /  distance in real lige (depend to range)
     error/ errors in the readings, because for each variation of 10 -20 mm there was an error
+    
+    
+    The sensor: 
 */
 
 
@@ -21,9 +24,9 @@ void setup()
 void loop()
 {
   tfont= analogRead(pin_font);                  //read the value the font
-  tDraw_Wire= analogRead(pin_signal_sensor);    //normalizar sinal
-  distance = tDraw_Wire*range/tfont;
-  error = -1.676 +0.03*distance
+  tDraw_Wire= analogRead(pin_signal_sensor);    //read the value the font 
+  distance = tDraw_Wire*range/tfont;            //the proportion between the voltage generated from the drawwire and the source is proportional to the distance
+  error = -1.676 +0.03*distance                  
     
   Serial.print(distance-error);
   Serial.print("\t mm\n");
